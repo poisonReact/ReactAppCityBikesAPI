@@ -1,0 +1,23 @@
+.stationItemWrapper {
+    display: flex;
+    justify-content: flex-start;
+
+    .stationItemName {
+        display: flex;
+        width: 305px;
+        margin-left: 5px;
+        align-items: center;
+        border-right: 1px solid black;
+        border-bottom: 1px solid black;
+    }
+
+    .stationItemBikesInfo {
+        width: 50px;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        border-right: 1px solid black;
+        border-bottom: 1px solid black;
+    }
+}

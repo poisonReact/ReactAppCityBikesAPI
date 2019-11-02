@@ -1,0 +1,24 @@
+.stationsListHeader {
+    display: flex;
+    font-size: 1.2em;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+.stationsListWrapper {
+    width: 450px;
+    border: 1px solid black;
+    overflow-y: scroll;
+    
+    .stationsListHeaderItem {
+        display: flex;
+    }
+}
+
+.favoriteStationsListWrapper {
+    width: 450px;
+    height: 200px;
+    border: 1px solid black;
+    overflow-y: scroll;
+}
+

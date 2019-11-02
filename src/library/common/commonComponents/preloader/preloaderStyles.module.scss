@@ -1,0 +1,21 @@
+.loader {
+    height: 12em;
+    margin: 0 auto;
+    padding: 10px;
+    width: 12em;
+    z-index: 9999;
+}
+    
+.loader svg {
+    height: 12em;
+    width: 12em;
+}
+    
+.loader svg path {
+    stroke-width: 0px;
+}
+    
+.loader svg path {
+    fill: grey;
+    stroke: none;
+}

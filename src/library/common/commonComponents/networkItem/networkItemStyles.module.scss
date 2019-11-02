@@ -1,0 +1,21 @@
+.networkItemWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 5px;
+    cursor: pointer;
+    width: 100%;
+
+    .networkItemName{
+        font-size: 1em; 
+    }
+
+    .networkItemId{
+        font-size: 0.8em; 
+
+    }
+}
+
+.networkItemWrapper:hover {
+    font-weight: bold;
+}
