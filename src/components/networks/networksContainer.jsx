@@ -1,12 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
-import styles from './networksStyles.module.scss'
-import { addNetworkToFavorites, removeNetworkFromFavorites } from './networksActions'
-import { getNetworks, getFavoriteNetworks, getNetworksIsRequesting, getActiveNetwork } from './networksSelectors'
-import Preloader from '../../library/common/commonComponents/preloader/preloader'
-import NetworkComponent from './Network/networkComponent'
-import { requestStations } from '../stations/stationsActions'
+import styles from 'components/networks/networksStyles.module.scss'
+import { addNetworkToFavorites, removeNetworkFromFavorites } from 'components/networks/networksActions'
+import { getNetworks, getFavoriteNetworks, getNetworksIsRequesting, getActiveNetwork } from 'components/networks/networksSelectors'
+import Preloader from 'library/common/commonComponents/preloader/preloader'
+import NetworkComponent from 'components/networks/Network/networkComponent'
+import { requestStations } from 'components/stations/stationsActions'
 
 const NetworksContainer = ({
   isRequesting,

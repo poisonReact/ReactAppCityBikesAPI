@@ -1,7 +1,7 @@
 import React from 'react'
-import styles from './inFavoriteStyles.module.scss'
-import heartDislike from '../../../../resources/images/inFavorites/heartDislike.png'
-import heartLike from '../../../../resources/images/inFavorites/heartLike.png'
+import styles from 'library/common/commonComponents/inFavorite/inFavoriteStyles.module.scss'
+import heartDislike from 'resources/images/inFavorites/heartDislike.png'
+import heartLike from 'resources/images/inFavorites/heartLike.png'
 const InFavorite = ({ callback, inFavoriteArr, argument }) => {
     return (
         <div className={styles.inFavoriteWrapper}>

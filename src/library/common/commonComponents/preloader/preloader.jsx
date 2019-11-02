@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './preloaderStyles.module.scss'
+import styles from 'library/common/commonComponents/preloader/preloaderStyles.module.scss'
 
 
 const Preloader = () => {

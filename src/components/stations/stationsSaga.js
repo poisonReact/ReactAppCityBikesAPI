@@ -1,8 +1,8 @@
 import { takeLatest, call, put } from 'redux-saga/effects'
-import { requestStationsSuccess, requestStationsError } from "./stationsActions"
-import { networksAPI } from "../../library/api/api"
-import { setNetworkActive } from "../networks/networksActions"
-import types from './stationsConstants'
+import { requestStationsSuccess, requestStationsError } from 'components/stations/stationsActions'
+import { networksAPI } from 'library/api/api'
+import { setNetworkActive } from 'components/networks/networksActions'
+import types from 'components/stations/stationsConstants'
 
 function* getStations(action) {
     yield put(setNetworkActive(action.payload))

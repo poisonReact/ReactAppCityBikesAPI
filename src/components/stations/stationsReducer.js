@@ -1,4 +1,4 @@
-import types from "./stationsConstants"
+import types from "components/stations/stationsConstants"
 
 const initialState = {
     isRequesting: false,

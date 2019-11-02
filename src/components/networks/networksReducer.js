@@ -1,4 +1,4 @@
-import types from "./networksConstants"
+import types from 'components/networks/networksConstants'
 
 const initialState = {
     isRequesting: false,

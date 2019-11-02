@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './networkItemStyles.module.scss'
+import styles from 'library/common/commonComponents/networkItem/networkItemStyles.module.scss'
 const NetworkItem = ({
     network,
     activeNetwork,

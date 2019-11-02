@@ -1,13 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
-import styles from './stationsStyles.module.scss'
-import { getStations, getStationsIsRequesting, getFavoriteStations } from './stationsSelectors'
-import Preloader from '../../library/common/commonComponents/preloader/preloader'
-import StationComponent from './station/stationComponent'
-import { addStationToFavorites, removeStationFromFavorites } from './stationsActions'
-import StationItem from '../../library/common/commonComponents/stationItem/stationItem'
-import { getActiveNetwork } from '../networks/networksSelectors'
+import styles from 'components/stations/stationsStyles.module.scss'
+import { getStations, getStationsIsRequesting, getFavoriteStations } from 'components/stations/stationsSelectors'
+import Preloader from 'library/common/commonComponents/preloader/preloader'
+import StationComponent from 'components/stations/station/stationComponent'
+import { addStationToFavorites, removeStationFromFavorites } from 'components/stations/stationsActions'
+import StationItem from 'library/common/commonComponents/stationItem/stationItem'
+import { getActiveNetwork } from 'components/networks/networksSelectors'
 
 const StationsContainer = ({
   stations,

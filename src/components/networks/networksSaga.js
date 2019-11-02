@@ -1,9 +1,9 @@
 import { takeLatest, call, put, select } from 'redux-saga/effects'
-import { requestNetworksSuccess, requestNetworksError } from "./networksActions"
-import { networksAPI } from "../../library/api/api"
-import types from "./networksConstants"
-import { requestStations } from '../stations/stationsActions'
-import { getRandomNetwork } from './networksSelectors'
+import { requestNetworksSuccess, requestNetworksError } from 'components/networks/networksActions'
+import { networksAPI } from 'library/api/api'
+import types from 'components/networks/networksConstants'
+import { requestStations } from 'components/stations/stationsActions'
+import { getRandomNetwork } from 'components/networks/networksSelectors'
 
 
 function* getNetworks() {

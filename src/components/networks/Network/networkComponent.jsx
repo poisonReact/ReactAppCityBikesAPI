@@ -1,7 +1,7 @@
 import React from 'react'
-import styles from './networkComponentStyles.module.scss'
-import InFavorite from '../../../library/common/commonComponents/inFavorite/inFavorite'
-import NetworkItem from '../../../library/common/commonComponents/networkItem/networkItem'
+import styles from 'components/networks/Network/networkComponentStyles.module.scss'
+import InFavorite from 'library/common/commonComponents/inFavorite/inFavorite'
+import NetworkItem from 'library/common/commonComponents/networkItem/networkItem'
 const NetworkComponent = ({
     network,
     activeNetwork,

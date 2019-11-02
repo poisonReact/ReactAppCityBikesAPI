@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './infoBarStyles.module.scss'
+import styles from 'components/infoBar/infoBarStyles.module.scss'
 
 const InfoBar = ({ activeNetwork, freeBikes }) => {
   return (

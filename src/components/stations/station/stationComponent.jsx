@@ -1,7 +1,7 @@
 import React from 'react'
-import styles from './stationComponentStyles.module.scss'
-import InFavorite from '../../../library/common/commonComponents/inFavorite/inFavorite'
-import StationItem from '../../../library/common/commonComponents/stationItem/stationItem'
+import styles from 'components/stations/station/stationComponentStyles.module.scss'
+import InFavorite from 'library/common/commonComponents/inFavorite/inFavorite'
+import StationItem from 'library/common/commonComponents/stationItem/stationItem'
 const StationComponent = ({ station, favoriteStations, setStationInFavorites }) => {
     return (
         <div className={styles.stationComponentWrapper}>

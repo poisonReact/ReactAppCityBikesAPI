@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './stationItemStyles.module.scss'
+import styles from 'library/common/commonComponents/stationItem/stationItemStyles.module.scss'
 
 const StationItem = ({ name, freeBikes, emptySlots }) => {
     return (
