@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render correctly preloader component 1`] = `
+<div
+  className="loader"
+>
+  <svg
+    height="48"
+    version="1.1"
+    viewBox="0 0 300 300"
+    width="48"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M 150,0 a 150,150 0 0,1 106.066,256.066 l -35.355,-35.355 a -100,-100 0 0,0 -70.711,-170.711 z"
+      fill="#76f19a"
+    >
+      <animateTransform
+        attributeName="transform"
+        attributeType="XML"
+        begin="0s"
+        dur="1s"
+        fill="freeze"
+        from="0 150 150"
+        repeatCount="indefinite"
+        to="360 150 150"
+        type="rotate"
+      />
+    </path>
+  </svg>
+</div>
+`;

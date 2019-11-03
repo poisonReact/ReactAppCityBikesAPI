@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render correctly NetworkError component 1`] = `
+<div
+  className="networkErrorWrapper"
+>
+  Some network error, please try again later
+</div>
+`;

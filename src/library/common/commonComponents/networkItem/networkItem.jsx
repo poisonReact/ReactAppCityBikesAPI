@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from 'library/common/commonComponents/networkItem/networkItemStyles.module.scss'
 const NetworkItem = ({
-    network,
+    network = {company: ['No Data'], id: 'No Data'},
     activeNetwork,
     getStations
 }) => {

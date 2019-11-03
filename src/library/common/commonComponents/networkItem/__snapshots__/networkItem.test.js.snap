@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render correctly NetworkItem component 1`] = `
+<div
+  className="networkItemWrapper"
+>
+  <div
+    onClick={[Function]}
+  >
+    <div
+      className="networkItemName"
+    >
+      No Data
+    </div>
+    <div
+      className="networkItemId"
+    >
+      (No Data)
+    </div>
+  </div>
+</div>
+`;
