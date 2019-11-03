@@ -14,6 +14,8 @@ const NetworkComponent = ({
             <NetworkItem
                 activeNetwork={activeNetwork}
                 network={network}
+                networkCompany={network.company ? network.company[0] : 'No Data'}
+                networkId={network.id ? network.id : 'No-Data'}
                 getStations={getStations} />
             <InFavorite
                 callback={setNetworkInFavorites}
