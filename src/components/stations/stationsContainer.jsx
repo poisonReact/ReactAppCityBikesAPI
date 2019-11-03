@@ -29,7 +29,7 @@ const StationsContainer = ({
     <div>
       <div className={styles.stationsListHeader}>Stations List</div>
       <div className={styles.stationsListWrapper} style={{ height: favoriteStations.length > 0 ? '341px' : '574px' }}>
-        {!stationsError && <NetworkError />}
+        {stationsError && <NetworkError />}
         {isRequesting && <Preloader />}
         <div style={{ visibility: isRequesting ? 'hidden' : 'visible' }}>
           {stations === null
