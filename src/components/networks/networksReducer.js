@@ -1,6 +1,6 @@
 import types from 'components/networks/networksConstants'
 
-const initialState = {
+export const initialState = {
     isRequesting: false,
     error: null,
     networksArr: null,
