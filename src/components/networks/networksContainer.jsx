@@ -10,79 +10,79 @@ import { requestStations } from 'components/stations/stationsActions'
 import NetworkError from 'library/common/commonComponents/networkError/networkError'
 
 const NetworksContainer = ({
-  isRequesting,
-  networks,
-  activeNetwork,
-  favoriteNetworks,
-  networksError,
-  addNetworkToFavorites,
-  removeNetworkFromFavorites,
-  requestStations
+    isRequesting,
+    networks,
+    activeNetwork,
+    favoriteNetworks,
+    networksError,
+    addNetworkToFavorites,
+    removeNetworkFromFavorites,
+    requestStations
 }) => {
 
-  const SetNetworkInFavorites = (val) => {
-    favoriteNetworks.map(val => val.id).indexOf(val.id) !== -1
-      ? removeNetworkFromFavorites(val.id)
-      : addNetworkToFavorites(val)
-  }
+    const SetNetworkInFavorites = (val) => {
+        favoriteNetworks.map(val => val.id).indexOf(val.id) !== -1
+            ? removeNetworkFromFavorites(val.id)
+            : addNetworkToFavorites(val)
+    }
 
-  return (
-    <div>
-      {networksError && <NetworkError />}
-      <div className={styles.networksListHeader}>Networks List</div>
-      <div className={styles.networksListWrapper}
-        style={{ height: favoriteNetworks.length > 0 ? '341px' : '574px' }}>
-        {isRequesting && <Preloader />}
-        <div style={{ visibility: isRequesting ? 'hidden' : 'visible' }}>
-          {networks && networks.map((val) => {
-            return (
-              <NetworkComponent
-                activeNetwork={activeNetwork}
-                network={val}
-                key={val.id}
-                favoriteNetworks={favoriteNetworks}
-                getStations={requestStations}
-                setNetworkInFavorites={SetNetworkInFavorites}
-              />
-            )
-          })}
-        </div>
-      </div>
-
-      {favoriteNetworks.length > 0 && <div>
+    return (
         <div>
-          <div className={styles.networksListHeader}>Favorite Networks List</div>
-          <div className={styles.favoriteNetworksListWrapper}>
-            <div>
-              {favoriteNetworks && favoriteNetworks.map((val) => {
-                return (
-                  <NetworkComponent
-                    activeNetwork={activeNetwork}
-                    network={val}
-                    key={val.id}
-                    favoriteNetworks={favoriteNetworks}
-                    getStations={requestStations}
-                    setNetworkInFavorites={SetNetworkInFavorites}
-                  />
-                )
-              })}
+            {networksError && <NetworkError />}
+            <div className={styles.networksListHeader}>Networks List</div>
+            <div className={styles.networksListWrapper}
+                style={{ height: favoriteNetworks.length > 0 ? '341px' : '574px' }}>
+                {isRequesting && <Preloader />}
+                <div style={{ visibility: isRequesting ? 'hidden' : 'visible' }}>
+                    {networks && networks.map((val) => {
+                        return (
+                            <NetworkComponent
+                                activeNetwork={activeNetwork}
+                                network={val}
+                                key={val.id}
+                                favoriteNetworks={favoriteNetworks}
+                                getStations={requestStations}
+                                setNetworkInFavorites={SetNetworkInFavorites}
+                            />
+                        )
+                    })}
+                </div>
             </div>
-          </div>
+
+            {favoriteNetworks.length > 0 && <div>
+                <div>
+                    <div className={styles.networksListHeader}>Favorite Networks List</div>
+                    <div className={styles.favoriteNetworksListWrapper}>
+                        <div>
+                            {favoriteNetworks && favoriteNetworks.map((val) => {
+                                return (
+                                    <NetworkComponent
+                                        activeNetwork={activeNetwork}
+                                        network={val}
+                                        key={val.id}
+                                        favoriteNetworks={favoriteNetworks}
+                                        getStations={requestStations}
+                                        setNetworkInFavorites={SetNetworkInFavorites}
+                                    />
+                                )
+                            })}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            }
         </div>
-      </div>
-      }
-    </div>
-  )
+    )
 }
 
 const mapStateToProps = (state) => ({
-  networks: getNetworks(state),
-  favoriteNetworks: getFavoriteNetworks(state),
-  isRequesting: getNetworksIsRequesting(state),
-  activeNetwork: getActiveNetwork(state),
-  networksError: getNetworksError(state)
+    networks: getNetworks(state),
+    favoriteNetworks: getFavoriteNetworks(state),
+    isRequesting: getNetworksIsRequesting(state),
+    activeNetwork: getActiveNetwork(state),
+    networksError: getNetworksError(state)
 })
 
 export default compose(
-  connect(mapStateToProps, { addNetworkToFavorites, removeNetworkFromFavorites, requestStations })
+    connect(mapStateToProps, { addNetworkToFavorites, removeNetworkFromFavorites, requestStations })
 )(NetworksContainer)

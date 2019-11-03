@@ -11,85 +11,85 @@ import { getActiveNetwork } from 'components/networks/networksSelectors'
 import NetworkError from 'library/common/commonComponents/networkError/networkError'
 
 const StationsContainer = ({
-  stations,
-  activeNetwork,
-  favoriteStations,
-  isRequesting,
-  stationsError,
-  addStationToFavorites,
-  removeStationFromFavorites }) => {
+    stations,
+    activeNetwork,
+    favoriteStations,
+    isRequesting,
+    stationsError,
+    addStationToFavorites,
+    removeStationFromFavorites }) => {
 
-  const SetStationInFavorites = (val) => {
-    favoriteStations.map(val => val.id).indexOf(val.id) !== -1
-      ? removeStationFromFavorites(val.id)
-      : addStationToFavorites(val)
-  }
+    const SetStationInFavorites = (val) => {
+        favoriteStations.map(val => val.id).indexOf(val.id) !== -1
+            ? removeStationFromFavorites(val.id)
+            : addStationToFavorites(val)
+    }
 
-  return (
-    <div>
-      <div className={styles.stationsListHeader}>Stations List</div>
-      <div className={styles.stationsListWrapper} style={{ height: favoriteStations.length > 0 ? '341px' : '574px' }}>
-        {stationsError && <NetworkError />}
-        {isRequesting && <Preloader />}
-        <div style={{ visibility: isRequesting ? 'hidden' : 'visible' }}>
-          {stations === null
-            ? <Preloader />
-            : stations.length === 0
-              ? <div>{`No data from ${activeNetwork.company} Network`}</div>
-              : <div className={styles.stationsListHeaderItem}>
-                <StationItem
-                  name={'Location'}
-                  freeBikes={'Free Bikes'}
-                  emptySlots={'Empty Slots'}
-                />
-              </div>
-          }
-          {stations && stations.map((val) => {
-            return (
-              <StationComponent
-                setStationInFavorites={SetStationInFavorites}
-                favoriteStations={favoriteStations}
-                key={val.id}
-                station={val} />
-            )
-          })}
+    return (
+        <div>
+            <div className={styles.stationsListHeader}>Stations List</div>
+            <div className={styles.stationsListWrapper} style={{ height: favoriteStations.length > 0 ? '341px' : '574px' }}>
+                {stationsError && <NetworkError />}
+                {isRequesting && <Preloader />}
+                <div style={{ visibility: isRequesting ? 'hidden' : 'visible' }}>
+                    {stations === null
+                        ? <Preloader />
+                        : stations.length === 0
+                            ? <div>{`No data from ${activeNetwork.company} Network`}</div>
+                            : <div className={styles.stationsListHeaderItem}>
+                                <StationItem
+                                    name={'Location'}
+                                    freeBikes={'Free Bikes'}
+                                    emptySlots={'Empty Slots'}
+                                />
+                            </div>
+                    }
+                    {stations && stations.map((val) => {
+                        return (
+                            <StationComponent
+                                setStationInFavorites={SetStationInFavorites}
+                                favoriteStations={favoriteStations}
+                                key={val.id}
+                                station={val} />
+                        )
+                    })}
+                </div>
+            </div>
+
+            {favoriteStations.length > 0 && <div>
+                <div className={styles.stationsListHeader}>Favorite Stations List</div>
+                <div className={styles.favoriteStationsListWrapper}>
+                    <div className={styles.stationsListHeaderItem}>
+                        <StationItem
+                            name={'Location'}
+                            freeBikes={'Free Bikes'}
+                            emptySlots={'Empty Slots'}
+                        />
+                    </div>
+                    {favoriteStations && favoriteStations.map((val) => {
+                        return (
+                            <StationComponent
+                                setStationInFavorites={SetStationInFavorites}
+                                favoriteStations={favoriteStations}
+                                key={val.id}
+                                station={val} />
+                        )
+                    })}
+                </div>
+            </div>
+            }
         </div>
-      </div>
-
-      {favoriteStations.length > 0 && <div>
-        <div className={styles.stationsListHeader}>Favorite Stations List</div>
-        <div className={styles.favoriteStationsListWrapper}>
-          <div className={styles.stationsListHeaderItem}>
-            <StationItem
-              name={'Location'}
-              freeBikes={'Free Bikes'}
-              emptySlots={'Empty Slots'}
-            />
-          </div>
-          {favoriteStations && favoriteStations.map((val) => {
-            return (
-              <StationComponent
-                setStationInFavorites={SetStationInFavorites}
-                favoriteStations={favoriteStations}
-                key={val.id}
-                station={val} />
-            )
-          })}
-        </div>
-      </div>
-      }
-    </div>
-  )
+    )
 }
 
 const mapStateToProps = (state) => ({
-  stations: getStations(state),
-  favoriteStations: getFavoriteStations(state),
-  isRequesting: getStationsIsRequesting(state),
-  activeNetwork: getActiveNetwork(state),
-  stationsError: getStationsError(state)
+    stations: getStations(state),
+    favoriteStations: getFavoriteStations(state),
+    isRequesting: getStationsIsRequesting(state),
+    activeNetwork: getActiveNetwork(state),
+    stationsError: getStationsError(state)
 })
 
 export default compose(
-  connect(mapStateToProps, { addStationToFavorites, removeStationFromFavorites })
+    connect(mapStateToProps, { addStationToFavorites, removeStationFromFavorites })
 )(StationsContainer)
