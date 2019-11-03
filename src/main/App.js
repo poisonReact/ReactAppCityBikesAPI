@@ -11,29 +11,29 @@ import { getStationsFreeBikes } from 'components/stations/stationsSelectors'
 
 
 const App = ({ requestNetworks, freeBikes, activeNetwork }) => {
-  useEffect(() => {
-    requestNetworks()
-  }, [requestNetworks])
+    useEffect(() => {
+        requestNetworks()
+    }, [requestNetworks])
 
-  return (
-    <div>
-      <InfoBar
-        activeNetwork={activeNetwork}
-        freeBikes={freeBikes}
-      />
-      <div className={styles.mainScreen}>
-        <NetworksContainer />
-        <StationsContainer />
-      </div>
-    </div>
-  )
+    return (
+        <div>
+            <InfoBar
+                activeNetwork={activeNetwork}
+                freeBikes={freeBikes}
+            />
+            <div className={styles.mainScreen}>
+                <NetworksContainer />
+                <StationsContainer />
+            </div>
+        </div>
+    )
 }
 
 const mapStateToProps = (state) => ({
-  activeNetwork: getActiveNetwork(state),
-  freeBikes: getStationsFreeBikes(state)
+    activeNetwork: getActiveNetwork(state),
+    freeBikes: getStationsFreeBikes(state)
 })
 
 export default compose(
-  connect(mapStateToProps, { requestNetworks })
+    connect(mapStateToProps, { requestNetworks })
 )(App)
