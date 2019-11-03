@@ -7,8 +7,8 @@ const StationComponent = ({ station, favoriteStations, setStationInFavorites }) 
         <div className={styles.stationComponentWrapper}>
             <StationItem
                 name={station.name}
-                freeBikes={station.free_bikes}
-                emptySlots={station.empty_slots}
+                freeBikes={station.free_bikes ? station.free_bikes : 'No info'}
+                emptySlots={station.empty_slots ? station.empty_slots : 'No info' }
             />
 
             <InFavorite
