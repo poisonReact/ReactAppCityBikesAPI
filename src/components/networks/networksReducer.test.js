@@ -19,7 +19,7 @@ describe('networksReducer test', () => {
             payload: ['error']
         }
 
-        expect(networksReducer(initialState, action)).toEqual({
+        expect(networksReducer({ ...initialState, isRequesting: true }, action)).toEqual({
             ...initialState,
             isRequesting: false,
             error: action.payload
@@ -32,7 +32,7 @@ describe('networksReducer test', () => {
             payload: [{ data: 'data1' }, { data: 'data2' }]
         }
 
-        expect(networksReducer(initialState, action)).toEqual({
+        expect(networksReducer({ ...initialState, isRequesting: true }, action)).toEqual({
             ...initialState,
             isRequesting: false,
             networksArr: action.payload
