@@ -2,18 +2,20 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import styles from 'components/stations/stationsStyles.module.scss'
-import { getStations, getStationsIsRequesting, getFavoriteStations } from 'components/stations/stationsSelectors'
+import { getStations, getStationsIsRequesting, getFavoriteStations, getStationsError } from 'components/stations/stationsSelectors'
 import Preloader from 'library/common/commonComponents/preloader/preloader'
 import StationComponent from 'components/stations/station/stationComponent'
 import { addStationToFavorites, removeStationFromFavorites } from 'components/stations/stationsActions'
 import StationItem from 'library/common/commonComponents/stationItem/stationItem'
 import { getActiveNetwork } from 'components/networks/networksSelectors'
+import NetworkError from 'library/common/commonComponents/networkError/networkError'
 
 const StationsContainer = ({
   stations,
   activeNetwork,
   favoriteStations,
   isRequesting,
+  stationsError,
   addStationToFavorites,
   removeStationFromFavorites }) => {
 
@@ -24,7 +26,8 @@ const StationsContainer = ({
   }
 
   return (
-    <div  >
+    <div>
+      {stationsError && <NetworkError />}
       <div className={styles.stationsListHeader}>Stations List</div>
       <div className={styles.stationsListWrapper} style={{ height: favoriteStations.length > 0 ? '341px' : '574px' }}>
         {isRequesting && <Preloader />}
@@ -83,7 +86,8 @@ const mapStateToProps = (state) => ({
   stations: getStations(state),
   favoriteStations: getFavoriteStations(state),
   isRequesting: getStationsIsRequesting(state),
-  activeNetwork: getActiveNetwork(state)
+  activeNetwork: getActiveNetwork(state),
+  stationsError: getStationsError(state)
 })
 
 export default compose(
