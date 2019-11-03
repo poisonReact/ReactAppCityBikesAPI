@@ -1,7 +1,9 @@
 import React from 'react'
 import styles from 'library/common/commonComponents/networkItem/networkItemStyles.module.scss'
 const NetworkItem = ({
-    network = {company: ['No Data'], id: 'No Data'},
+    network = {company: ['No Data'], id: 'No-Data'},
+    networkCompany = 'No Data',
+    networkId ='No-Data',
     activeNetwork,
     getStations
 }) => {
@@ -14,10 +16,10 @@ const NetworkItem = ({
             style={activeNetwork && (activeNetwork.id === network.id ? activeStyle : inActiveStyle)}>
             <div onClick={() => getStations(network)}>
                 <div className={styles.networkItemName}>
-                    {network.company}
+                    {networkCompany}
                 </div>
                 <div className={styles.networkItemId}>
-                    {`(${network.id.replace(/-/g, ' ')})`}
+                    {`(${networkId.replace(/-/g, ' ')})`}
                 </div>
             </div>
         </div>
