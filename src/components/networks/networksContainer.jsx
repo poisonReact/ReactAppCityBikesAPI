@@ -29,25 +29,25 @@ const NetworksContainer = ({
   return (
     <div>
       {networksError && <NetworkError />}
-          <div className={styles.networksListHeader}>Networks List</div>
-          <div className={styles.networksListWrapper}
-            style={{ height: favoriteNetworks.length > 0 ? '341px' : '574px' }}>
-            {isRequesting && <Preloader />}
-            <div style={{ visibility: isRequesting ? 'hidden' : 'visible' }}>
-              {networks && networks.map((val) => {
-                return (
-                  <NetworkComponent
-                    activeNetwork={activeNetwork}
-                    network={val}
-                    key={val.id}
-                    favoriteNetworks={favoriteNetworks}
-                    getStations={requestStations}
-                    setNetworkInFavorites={SetNetworkInFavorites}
-                  />
-                )
-              })}
-            </div>
-          </div>
+      <div className={styles.networksListHeader}>Networks List</div>
+      <div className={styles.networksListWrapper}
+        style={{ height: favoriteNetworks.length > 0 ? '341px' : '574px' }}>
+        {isRequesting && <Preloader />}
+        <div style={{ visibility: isRequesting ? 'hidden' : 'visible' }}>
+          {networks && networks.map((val) => {
+            return (
+              <NetworkComponent
+                activeNetwork={activeNetwork}
+                network={val}
+                key={val.id}
+                favoriteNetworks={favoriteNetworks}
+                getStations={requestStations}
+                setNetworkInFavorites={SetNetworkInFavorites}
+              />
+            )
+          })}
+        </div>
+      </div>
 
       {favoriteNetworks.length > 0 && <div>
         <div>
