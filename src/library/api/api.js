@@ -7,19 +7,17 @@ const instance = axios.create({
 export const networksAPI = {
     async getNetworks() {
         try {
-            let result = await instance.get(`networks?fields=id,company`)
-            return result
+            return instance.get(`networks?fields=id,company`)
         } catch (error) {
-            return Promise.reject(new Error(400));
+            return Promise.reject(error);
         }
     },
 
     async getNetworkProps(id) {
         try {
-            let result = await instance.get(`networks/${id}`)
-            return result
+            return instance.get(`networks/${id}`)
         } catch (error) {
-            return Promise.reject(new Error(400));
+            return Promise.reject(error);
         }
     }
 }
