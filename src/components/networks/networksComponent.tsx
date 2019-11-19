@@ -1,15 +1,22 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { compose } from 'redux'
 import styles from 'components/networks/networksStyles.module.scss'
-import { addNetworkToFavorites, removeNetworkFromFavorites } from 'components/networks/networksActions'
-import { getNetworks, getFavoriteNetworks, getNetworksIsRequesting, getActiveNetwork, getNetworksError } from 'components/networks/networksSelectors'
 import Preloader from 'library/common/commonComponents/preloader/preloader'
 import NetworkComponent from 'components/networks/Network/networkComponent'
-import { requestStations } from 'components/stations/stationsActions'
 import NetworkError from 'library/common/commonComponents/networkError/networkError'
+import { INetwork } from 'components/networks/networksTypes'
 
-const NetworksContainer = ({
+interface InputProps {
+    isRequesting: boolean;
+    networks: INetwork[];
+    activeNetwork: INetwork;
+    favoriteNetworks: INetwork[];
+    networksError: any;
+    addNetworkToFavorites: (value: INetwork) => void;
+    removeNetworkFromFavorites: (value: string) => void;
+    requestStations: (value: INetwork) => void
+}
+
+const NetworksComponent = ({
     isRequesting,
     networks,
     activeNetwork,
@@ -18,9 +25,9 @@ const NetworksContainer = ({
     addNetworkToFavorites,
     removeNetworkFromFavorites,
     requestStations
-}) => {
+}: InputProps) => {
 
-    const SetNetworkInFavorites = (val) => {
+    const SetNetworkInFavorites = (val: INetwork) => {
         favoriteNetworks.map(val => val.id).indexOf(val.id) !== -1
             ? removeNetworkFromFavorites(val.id)
             : addNetworkToFavorites(val)
@@ -75,14 +82,4 @@ const NetworksContainer = ({
     )
 }
 
-const mapStateToProps = (state) => ({
-    networks: getNetworks(state),
-    favoriteNetworks: getFavoriteNetworks(state),
-    isRequesting: getNetworksIsRequesting(state),
-    activeNetwork: getActiveNetwork(state),
-    networksError: getNetworksError(state)
-})
-
-export default compose(
-    connect(mapStateToProps, { addNetworkToFavorites, removeNetworkFromFavorites, requestStations })
-)(NetworksContainer)
+export default NetworksComponent

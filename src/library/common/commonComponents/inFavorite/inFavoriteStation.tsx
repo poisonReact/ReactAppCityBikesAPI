@@ -2,7 +2,15 @@ import React from 'react'
 import styles from 'library/common/commonComponents/inFavorite/inFavoriteStyles.module.scss'
 import heartDislike from 'resources/images/inFavorites/heartDislike.png'
 import heartLike from 'resources/images/inFavorites/heartLike.png'
-const InFavorite = ({ callback, inFavoriteArr, argument }) => {
+import { IStation } from 'components/stations/stationsTypes'
+
+interface InputProps {
+    argument: IStation;
+    inFavoriteArr: IStation[];
+    callback: (value: IStation) => void
+}
+
+const InFavoriteStation = ({ callback, inFavoriteArr, argument }: InputProps) => {
     return (
         <div className={styles.inFavoriteWrapper}>
             <div
@@ -15,5 +23,4 @@ const InFavorite = ({ callback, inFavoriteArr, argument }) => {
     )
 }
 
-
-export default InFavorite
+export default InFavoriteStation

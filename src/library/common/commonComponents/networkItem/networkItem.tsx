@@ -1,12 +1,29 @@
 import React from 'react'
 import styles from 'library/common/commonComponents/networkItem/networkItemStyles.module.scss'
+
+interface IDataElement {
+    company: string[];
+    id: string
+}
+
+interface InputProps {
+    network: IDataElement;
+    networkCompany: string;
+    networkId: string;
+    activeNetwork: IDataElement;
+    getStations: (value: IDataElement) => void
+}
+
 const NetworkItem = ({
-    network = {company: ['No Data'], id: 'No-Data'},
+    network = {
+        company: ['No Data'],
+        id: 'No-Data'
+    },
     networkCompany = 'No Data',
-    networkId ='No-Data',
+    networkId = 'No-Data',
     activeNetwork,
     getStations
-}) => {
+}: InputProps) => {
 
     let activeStyle = { color: 'red' }
     let inActiveStyle = { color: 'black' }

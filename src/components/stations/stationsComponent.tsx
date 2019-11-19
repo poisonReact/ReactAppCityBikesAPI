@@ -1,25 +1,33 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { compose } from 'redux'
 import styles from 'components/stations/stationsStyles.module.scss'
-import { getStations, getStationsIsRequesting, getFavoriteStations, getStationsError } from 'components/stations/stationsSelectors'
 import Preloader from 'library/common/commonComponents/preloader/preloader'
 import StationComponent from 'components/stations/station/stationComponent'
-import { addStationToFavorites, removeStationFromFavorites } from 'components/stations/stationsActions'
 import StationItem from 'library/common/commonComponents/stationItem/stationItem'
-import { getActiveNetwork } from 'components/networks/networksSelectors'
 import NetworkError from 'library/common/commonComponents/networkError/networkError'
+import { IStation } from 'components/stations/stationsTypes'
+import { INetwork } from 'components/networks/networksTypes'
 
-const StationsContainer = ({
+interface InputProps {
+    stations: IStation[];
+    activeNetwork: INetwork;
+    favoriteStations: IStation[];
+    isRequesting: boolean;
+    stationsError: any;
+    addStationToFavorites: (value: IStation) => void;
+    removeStationFromFavorites: (value: string) => void
+}
+
+const StationsComponent = ({
     stations,
     activeNetwork,
     favoriteStations,
     isRequesting,
     stationsError,
     addStationToFavorites,
-    removeStationFromFavorites }) => {
+    removeStationFromFavorites
+}: InputProps) => {
 
-    const SetStationInFavorites = (val) => {
+    const SetStationInFavorites = (val: IStation) => {
         favoriteStations.map(val => val.id).indexOf(val.id) !== -1
             ? removeStationFromFavorites(val.id)
             : addStationToFavorites(val)
@@ -82,14 +90,4 @@ const StationsContainer = ({
     )
 }
 
-const mapStateToProps = (state) => ({
-    stations: getStations(state),
-    favoriteStations: getFavoriteStations(state),
-    isRequesting: getStationsIsRequesting(state),
-    activeNetwork: getActiveNetwork(state),
-    stationsError: getStationsError(state)
-})
-
-export default compose(
-    connect(mapStateToProps, { addStationToFavorites, removeStationFromFavorites })
-)(StationsContainer)
+export default StationsComponent

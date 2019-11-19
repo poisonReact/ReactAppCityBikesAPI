@@ -1,7 +1,17 @@
 import React from 'react'
 import styles from 'library/common/commonComponents/stationItem/stationItemStyles.module.scss'
 
-const StationItem = ({ name = 'No Data', freeBikes = 'No Data', emptySlots = 'No Data' }) => {
+interface InputProps {
+    name: string;
+    freeBikes: string;
+    emptySlots: string;
+}
+
+const StationItem = ({ 
+    name = 'No Data', 
+    freeBikes = 'No Data', 
+    emptySlots = 'No Data' 
+}: InputProps) => {
     return (
         <div className={styles.stationItemWrapper}>
             <div className={styles.stationItemName}>
