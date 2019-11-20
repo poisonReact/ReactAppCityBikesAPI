@@ -1,13 +1,21 @@
-import types from "components/stations/stationsConstants"
+import types from 'components/stations/stationsConstants'
+import { ActionTypes, IStation } from 'components/stations/stationsTypes'
 
-const initialState = {
+interface IInitialState {
+    isRequesting: boolean;
+    favoriteStations: IStation[];
+    error: any;
+    stations: IStation[] | null;
+}
+
+const initialState: IInitialState = {
     isRequesting: false,
     favoriteStations: [],
     error: null,
     stations: null
 }
 
-const stationsReducer = (state = initialState, action) => {
+const stationsReducer = (state = initialState, action: ActionTypes) => {
     switch (action.type) {
         case types.REQUEST_STATIONS:
             return {

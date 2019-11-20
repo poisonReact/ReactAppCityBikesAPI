@@ -1,8 +1,9 @@
 import types from 'components/networks/networksConstants'
 
-export const requestNetworks = () => {
+export const requestNetworks = (payload) => {
     return {
-        type: types.REQUEST_NETWORKS
+        type: types.REQUEST_NETWORKS,
+        payload
     }
 }
 
